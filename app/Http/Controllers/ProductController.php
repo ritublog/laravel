@@ -98,7 +98,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-      $product = Crud::find($id);
+      $product = Product::find($id);
       $product->delete();
 
       return redirect('/product');
