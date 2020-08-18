@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Crud;
+use App\Product;
 
 
-class CRUDController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class CRUDController extends Controller
      */
     public function index()
     {
-                $cruds = Crud::all()->toArray();
+                $products = Product::all()->toArray();
         
-        return view('index', compact('cruds'));
+        return view('index', compact('products'));
     }
 
     /**
@@ -39,14 +39,14 @@ class CRUDController extends Controller
      */
     public function store(Request $request)
     {
-      $crud = new Crud([
+      $product = new Product([
           'name' => $request->get('name'),
           'price' => $request->get('price'),
           'image' => $request->get('image')
         ]);
 
-        $crud->save();
-        return redirect('/crud');
+        $product->save();
+        return redirect('/product');
 
     }
 
@@ -69,8 +69,8 @@ class CRUDController extends Controller
      */
     public function edit($id)
     {
-         $crud = Crud::find($id);
-            return view('edit', compact('crud','id'));
+         $product = Product::find($id);
+            return view('edit', compact('product','id'));
 
     }
 
@@ -83,11 +83,11 @@ class CRUDController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $crud = Crud::find($id);
-        $crud->name = $request->get('name');
-        $crud->price = $request->get('price');
-        $crud->save();
-        return redirect('/crud');
+        $product = Product::find($id);
+        $product->name = $request->get('name');
+        $product->price = $request->get('price');
+        $product->save();
+        return redirect('/product');
     }
 
     /**
@@ -98,9 +98,9 @@ class CRUDController extends Controller
      */
     public function destroy($id)
     {
-      $crud = Crud::find($id);
-      $crud->delete();
+      $product = Crud::find($id);
+      $product->delete();
 
-      return redirect('/crud');
+      return redirect('/product');
     }
 }

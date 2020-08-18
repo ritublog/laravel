@@ -12,15 +12,15 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($cruds as $post)
+      @foreach($products as $data)
       <tr>
-        <td>{{$post['id']}}</td>
-        <td>{{$post['name']}}</td>
-        <td>{{$post['price']}}</td>
-        <td><img src="{{URL::to('/')/images/{{$post['image']}}"></td>
-        <td><a href="{{action('CRUDController@edit', $post['id'])}}" class="btn btn-warning">Edit</a></td>
+        <td>{{$data['id']}}</td>
+        <td>{{$data['name']}}</td>
+        <td>{{$data['price']}}</td>
+        <td><img src="{{URL::to('/')/image/{{$data['image']}}"></td>
+        <td><a href="{{action('ProductController@edit', $data['id'])}}" class="btn btn-warning">Edit</a></td>
         <td>
-          <form action="{{action('CRUDController@destroy', $post['id'])}}" method="post">
+          <form action="{{action('ProductController@destroy', $data['id'])}}" method="post">
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>

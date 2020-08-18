@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('curd','CRUDController');
+Route::resource('product','ProductController');
+

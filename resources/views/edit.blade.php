@@ -1,15 +1,15 @@
 @extends('master')
 @section('content')
 <div class="container">
-  <form method="post" action="{{action('CRUDController@update', $id)}}">
+  <form method="post" action="{{action('ProductController@update', $id)}}">
     <div class="form-group row">
       {{csrf_field()}}
        <input name="_method" type="hidden" value="PATCH">
        <div class="form-group">
-         Name:-<input type="text" name="name" class="form-control" value="{{$curd->name}}">
+         Name:-<input type="text" name="name" class="form-control" value="{{$product->name}}">
        </div>
        <div class="form-group">
-         Price:-<input type="text" name="price" class="form-control" value="{{$curd->price}}">
+         Price:-<input type="text" name="price" class="form-control" value="{{$product->price}}">
        </div>
     <div class="form-group row">
       <div class="col-md-2"></div>
